@@ -1,0 +1,73 @@
+= 跬步4 Document version control practice
+Wang wenlong <wenlong.wang@mobilityasia.com.cn>
+:doctype: book
+:reproducible:
+:toc: right
+:source-highlighter: rouge
+:listing-caption: Listing
+:hardbreaks:
+
+[quote, Nick Coghlan]
+____
+Unless your UI discoverability is really good, saying “the feature isn’t documented” is the same as saying “the product can’t do it.”
+____
+In other words,
+[quote, Matthew Ginnard]
+____
+Live and die by documentation.
+____
+
+== What
+如标题所言,本文的关注点是文档的版本控制
+版本控制的意义,本文默认大家都已经非常清楚了
+但是有时一些程序员(包括我)经常会忽略文档的撰写,把coding放在第一位
+其实这种行为是很危险的,没有详设文档等于软件生命周期里少了一步
+程序员三大美德之首的懒惰,就是因为不堪一个个人的解释,所以强调撰写文档的重要性
+
+== Why
+为什么对我而言,word撰写api文档是不那么令人满意的?
+因为word版的文档的版本控制成本非常高
+
+就我现在的知识而言,我们有两种工具来帮我们完成文档的版本控制:
+
+- git
+- confluence
+
+下面是他们的比较
+|===
+||git |confluence
+|pros |去中心化
+离线化
+编辑器无关
+代码文档一体化
+硬核buff
+|权限管理open
+|cons |权限管理不够open |中心化
+无法离线
+编辑器相关
+文档代码脱节(碎片化)
+不够硬核(不能激发创作热情,反而是热情的消耗)
+|===
+
+综上,对我而言,把文档写在git上,然后把外放版本放在confluence就是一个折中的妥协
+
+== Why this
+对于上面提到的解决方案,我希望能够版本控制的文档撰写有以下feature
+
+- 轻量级的标记语言(html在我的标准里已经算重了)
+- git原生支持
+- 支持导出成一种常见文档格式(word,pdf...etc)
+- 导出的文档带有目录结构
+
+我首先想到的是markdown,符合我们上述的需求,但是markdown有他的劣势
+
+- 不支持复杂的表格,而我们现在版本的Api文档里有复杂表格格式(虽然从道理来说,Api文档可以用简单表格来完成一样的信息表达)
+- 一些markdown方言支持复杂表格,但解决方案不够全套.大多是渲染支持,但是导出pdf时,表格格式和目录无法兼顾
+
+所以经过调研我选择了AsciiDoc,除了具备我们上述期望的feature,相对于markdown,支持复杂的表格和一些加强功能,比如文档的include
+
+== How
+See https://asciidoctor.org/docs/asciidoc-writers-guide/[Asciidoc Writer's Guide]
+
+== Demo
+See http://dev-ma-icp.dev.maezia:32364/Ariadne/payment/tree/master/external[Payment Api Document]
