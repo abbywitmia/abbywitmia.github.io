@@ -11,11 +11,11 @@
 虽然我们不能用flyway来做migration了,但是flyway还有validation的功能,所以我们希望可以只用validation的功能.
 
 ## Action
-1. 我们知道spring-boot提供了丰富的集成配置能力,通过配置可行吗?所以我们马上去查[spring-boot的配置指导](https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html),然而很遗憾的是,spring-boot并不能提供通过配置实现我们需求的能力,这种尝试无果而返.
-2. 作为一个面向SO编程的程序员,一次尝试的失败难不倒我,很快我们就发现在[spring-boot官方文档](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-database-initialization.html)里,有这么一句话
-> Spring Boot calls Flyway.migrate() to perform the database migration. If you would like more control, provide a \@Bean that implements FlywayMigrationStrategy.
+1. 我们知道spring-boot提供了丰富的集成配置能力,通过配置可行吗?所以我们马上去查[spring-boot的配置指导](https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html),然而很遗憾的是,spring-boot并不能提供通过配置实现我们需求的能力,这种尝试无果而返.
+2. 作为一个面向SO编程的程序员,一次尝试的失败难不倒我,很快我们就发现在[spring-boot官方文档](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-database-initialization.html)里,有这么一句话
+> Spring Boot calls Flyway.migrate() to perform the database migration. If you would like more control, provide a @Bean that implements FlywayMigrationStrategy.
 
-Ok,所以我们编写如下一个类
+Ok,所以我们编写如下一个类
 ```Java
 /**
  * @author Wit
