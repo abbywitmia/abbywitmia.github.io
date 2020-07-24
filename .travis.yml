@@ -1,4 +1,6 @@
 language: ruby
+before_install:
+  - chmod +x ./build.sh
 script: "./build.sh" # execute this script on each commit
 rvm:
 - 2.2
