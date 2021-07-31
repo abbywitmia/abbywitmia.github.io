@@ -3,7 +3,7 @@ layout: post
 title: Parking Code Review
 categories: Java
 description: Parking Code Review
-keywords: XXL-JOB, Java, 分片广播
+keywords: Java
 ---
 
 # 跬步1 Parking Code Review Demo
@@ -126,7 +126,7 @@ public String requestUsersigin(String mobilePhoneNo) throws JsonProcessingExcept
 ### 2.2 What’s the point
 当我看到一堆if嵌套引起的缩进的时候,我是懵逼的(不知道游标卡尺master python程序员怎么想).  
 其实这个还好,只有两层,不过当分支block过大或嵌套更深时,仍然非常可怕  
-因为缩进某种意义是个栈结构,我理解大多数人的栈深度并不大  
+因为缩进某种意义是个栈结构,我理解大多数人的栈深度并不大  
 我承认我脑子转的不够快,但能不能写一些对我这样的迟钝者友好些的代码呢?  
 答案是可以,提前return就好了  
 如果有一个if/else,处理逻辑一个长一个短,把短的提前判断出来,然后return
