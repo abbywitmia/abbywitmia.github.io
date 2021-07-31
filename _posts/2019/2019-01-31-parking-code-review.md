@@ -195,11 +195,11 @@ public String requestUsersigin(String mobilePhoneNo) throws JsonProcessingExcept
 if(usersiginResponseVo.getCode().equals(ETCPBusinessCodeEnum.SUCCESS.getCode()))
 ```
 这段equals是可能抛空指针的  
-如果你装了alibaba的编码规约插件,你可能会看到warning,让你把非空变量作为equals函数调用方  
+如果你装了alibaba的编码规约插件,你可能会看到warning,让你把非空变量作为equals函数调用方  
 另一种办法是使用java built-in的`Objects.equals()`
 ### 3.3 Demo
 ```java
-if(Objects.equals(usersiginResponseVo.getCode(), ETCPBusinessCodeEnum.SUCCESS.getCode())
+if(Objects.equals(usersiginResponseVo.getCode(), ETCPBusinessCodeEnum.SUCCESS.getCode())
 ```
 ## 4 Let it crash
 ### 4.1 Code
@@ -233,9 +233,9 @@ public String requestUsersigin(String mobilePhoneNo) throws JsonProcessingExcept
 }
 ```
 ### 4.2 What’s the point
-这段在遇到异常的情况下返回是空字符串""  
+这段在遇到异常的情况下返回是空字符串""  
 但是如果token是空的情况,业务肯定失败,这时应该直接抛出`Exception`  
-有问题请直接失败,这就是失败策略之fail-fast
+有问题请直接失败,这就是失败策略之fail-fast
 ### 4.3 Demo
 ```java
 public String requestUsersigin(String mobilePhoneNo) throws JsonProcessingException{
@@ -294,10 +294,10 @@ public ServiceResponseVo bindVehiclePlate(VehiclePlateInfoRequestVo vehiclePlate
 ### 5.2 What’s the point
 这是绑定车牌的逻辑,需要从缓存获取token  
 token可能过期,过期时应该更新token  
-这个实现有一个问题就是没有在刷新token时缓存失效  
+这个实现有一个问题就是没有在刷新token时缓存失效  
 可能会导致业务在token过期的间隔中持续失败
 ### 5.3 Demo
-这个是payment的充电接入层实现
+这个是payment的充电接入层实现
 ```java
 @SneakyThrows
 public <Req, Resp> Resp call(String method, Req data, Class<Resp> clazz) {
@@ -379,10 +379,10 @@ public List<ParkFeeInfoResponseVo> unPayParkFeeInfoResponseHandle(OrderunpayResp
 ```
 ### 6.2 What’s the point
 这段的逻辑是把etcp的返回结果包装成我们自己的内部逻辑处理类  
-那么问题来了,为啥不直接用内部逻辑类作为etcp的返回结果?  
-这里有一个问题,两边的字段名不一致怎么办?  
-可能有人会说,内部类的命名是我们可以控制的,我们匹配etcp的命名不就好了?  
-那么如果停简单的字段名和etcp不一致\(事实上真的不一致,再退一步,如果以后接别的CP/SP怎么办)怎么办?  
+那么问题来了,为啥不直接用内部逻辑类作为etcp的返回结果?  
+这里有一个问题,两边的字段名不一致怎么办?  
+可能有人会说,内部类的命名是我们可以控制的,我们匹配etcp的命名不就好了?  
+那么如果停简单的字段名和etcp不一致\(事实上真的不一致,再退一步,如果以后接别的CP/SP怎么办)怎么办?  
 我们需要更通用的方法
 ### 6.3 Demo
 ```java
@@ -391,7 +391,7 @@ public class InternalOrder {
   String orderId;
 }
 ```
-这样不论是
+这样不论是
 ```json
 {"OrderId":"testOrderId"}
 ```
@@ -399,8 +399,8 @@ public class InternalOrder {
 ```json
 {"order_id":"testOrderId"}
 ```
-都可以反序列化成功  
-By the way 这个例子嵌套导致的缩进同样很多,可以用前述方式[2 If and Else](#2-if-and-else)来实现
+都可以反序列化成功 
+By the way 这个例子嵌套导致的缩进同样很多,可以用前述方式[2 If and Else](#2-if-and-else)来实现
 ## 7 Global excpetion handler
 ### 7.1 Code
 ```java
@@ -425,8 +425,8 @@ public MAResponse<VoidVo> bindVehiclePlate(@RequestBody VehiclePlateInfoRequestV
 }
 ```
 ### 7.2 What’s the point
-每个操作都要try/catch和打日志,好烦  
-可以用注解来打日志,用global excpetion handler来处理异常
+每个操作都要try/catch和打日志,好烦  
+可以用注解来打日志,用global excpetion handler来处理异常
 ### 7.3 Demo
 ```java
 /**
@@ -445,7 +445,7 @@ public MAResponse<VoidVo> bindVehiclePlate(@RequestBody VehiclePlateInfoRequestV
     return maResponse;
 }
 ```
-环绕日志注解,包括出入参和运行时间
+环绕日志注解,包括出入参和运行时间
 ```java
 @Aspect
 @Component
