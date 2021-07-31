@@ -19,7 +19,7 @@ keywords: Network
 互联网的实现，分成好几层。每一层都有自己的功能，就像建筑物一样，每一层都靠下一层支持。  
 用户接触到的，只是最上面的一层，根本没有感觉到下面的层。要理解互联网，必须从最下层开始，自下而上理解每一层的功能。  
 如何分层有不同的模型，有的模型分七层，有的分四层。我觉得，把互联网分成五层，比较容易解释。  
-![5 layer model](/images/posts/2021/network/5layer_model.png)  
+![5 layer model](../../images/posts/2021/network/5layer_model.png)  
 如上图所示，最底下的一层叫做"实体层"（Physical Layer），最上面的一层叫做"应用层"（Application Layer），中间的三层（自下而上）分别是"链接层"（Link Layer）、"网络层"（Network Layer）和"传输层"（Transport Layer）。越下面的层，越靠近硬件；越上面的层，越靠近用户。  
 它们叫什么名字，其实并不重要。只需要知道，互联网分成若干层就可以了。  
 ## 1.2 层与协议
