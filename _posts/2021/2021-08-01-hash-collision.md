@@ -4,6 +4,7 @@ title: 哈希碰撞与生日攻击
 categories: Algorithm, Math
 description: 哈希碰撞与生日攻击
 keywords: Algorithm, Math
+mathjax: true
 ---
 
 作者： 阮一峰  
