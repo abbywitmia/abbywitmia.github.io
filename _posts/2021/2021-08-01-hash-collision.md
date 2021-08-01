@@ -43,20 +43,20 @@ $$ \sqrt {\frac{\pi}{2}N} $$
 至少两个人生日相同的概率，可以先算出所有人生日互不相同的概率，再用 1 减去这个概率。  
 我们把这个问题设想成，每个人排队依次进入一个房间。第一个进入房间的人，与房间里已有的人（0人），生日都不相同的概率是`365/365`；第二个进入房间的人，生日独一无二的概率是`364/365`；第三个人是`363/365`，以此类推。  
 因此，所有人的生日都不相同的概率，就是下面的公式。  
-$$ \overline p(n) = 1 \cdot (1- \frac{1}{365}) \cdot (1- \frac{2}{365}) \cdots (1-\frac{n-1}{365}) $$
+$$ \overline p(n) = 1 \cdot (1- \frac{1}{365}) \cdot (1- \frac{2}{365}) \cdots (1-\frac{n-1}{365}) $$  
 上面公式的 n 表示进入房间的人数。可以看出，进入房间的人越多，生日互不相同的概率就越小。  
 这个公式可以推导成下面的形式。  
-$$ \frac{365!}{365^n(365-n)!} $$
+$$ \frac{365!}{365^n(365-n)!} $$  
 那么，至少有两个人生日相同的概率，就是 1 减去上面的公式。  
-$$ p(n) = 1 - \overline p(n) = 1 - \frac{365!}{365^n(365-n)!} $$
+$$ p(n) = 1 - \overline p(n) = 1 - \frac{365!}{365^n(365-n)!} $$  
 # 五、哈希碰撞的公式
 上面的公式，可以进一步推导成一般性的、便于计算的形式。  
 根据泰勒公式，指数函数 ex 可以用多项式展开。  
-$$ exp(x) = \sum^{\infty}_{k=0}\frac{x^k}{k!} = 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \cdots $$
+$$ exp(x) = \sum^{\infty}_{k=0}\frac{x^k}{k!} = 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \cdots $$  
 如果 x 是一个极小的值，那么上面的公式近似等于下面的形式。  
 $$ e^x \approx 1+x $$
 现在把生日问题的`1/365`代入。  
-$$ e^{-\frac{1}{365}} \approx 1 - \frac{1}{365} $$
+$$ e^{-\frac{1}{365}} \approx 1 - \frac{1}{365} $$  
 因此，生日问题的概率公式，变成下面这样。  
 $$
 \begin{aligned}
@@ -64,9 +64,9 @@ $$
 = e^{-\frac{1+2+\cdots+n-1}{365}} = e^{-\frac{n(n-1)/2}{365}} = e^{-\frac{n(n-1)}{730}} \\
 p(n) = 1 - \overline p(n) \approx 1 - e^{-\frac{n(n-1)}{730}}
 \end{aligned}
-$$
+$$  
 假设 d 为取值空间（生日问题里是 365），就得到了一般化公式。  
-$$ p(n, d) \approx 1 - e^{\frac{-n(n-1)}{2d}} $$
+$$ p(n, d) \approx 1 - e^{\frac{-n(n-1)}{2d}} $$  
 上面就是哈希碰撞概率的公式。  
 # 六、应用
 上面的公式写成函数。  
@@ -92,6 +92,6 @@ calculate(62 ** 5, 10000) // 0.05310946204730993
 根据上面的公式倒推，就会知道哈希值的最短长度是22个字符（比如`BwQ1W6soXkA1PU120r0yMA`），计算过程略。  
 22个字符的哈希值，就能保证300万亿次计算里面，只有1000亿分之一的概率发生碰撞。常用的 SHA256 哈希函数产生的是64个字符的哈希值，每个字符的取值范围是`0 ~ 9`和`a ~ f`，发生碰撞的概率还要低得多。  
 # 七、参考链接
-[How Long Should I Make My API Key?](https://medium.freecodecamp.org/how-long-should-i-make-my-api-key-833ebf2dc26f), by Sam Corcos
-[Birthday problem](https://en.wikipedia.org/wiki/Birthday_problem), by Wikipedia
-[Birthday attack](https://en.wikipedia.org/wiki/Birthday_attack), by Wikipedia
+[How Long Should I Make My API Key?](https://medium.freecodecamp.org/how-long-should-i-make-my-api-key-833ebf2dc26f), by Sam Corcos  
+[Birthday problem](https://en.wikipedia.org/wiki/Birthday_problem), by Wikipedia  
+[Birthday attack](https://en.wikipedia.org/wiki/Birthday_attack), by Wikipedia  
