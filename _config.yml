@@ -37,7 +37,7 @@ components:
     # 页面右上角，以及「关于」页面的二维码
     # 修改图片请替换 assets/images/qrcode.jpg
     qrcode:
-        enabled: true
+        enabled: false
         image_alt: 闷骚的程序员
 # 压缩页面内容
 compress_html:
@@ -50,8 +50,8 @@ highlight_theme: github
 #      Author      #
 # ---------------- #
 author: Wit
-organization: 
-organization_url: 
+organization:
+organization_url:
 github_username: abbywitmia
 location: Beijing, China
 email: 350698064@qq.com
@@ -128,7 +128,7 @@ comments_provider: gitalk
 # !!!Important!!! Please modify infos below to yours
 # https://disqus.com
 disqus:
-    username: 
+    username:
 # https://imsun.net/posts/gitment-introduction/
 gitment:
     owner: mzlogin
@@ -150,7 +150,7 @@ lazy_load_disqus : false
 # ---------------- #
 simple_jekyll_search:
     # 是否支持全文搜索
-    fulltext: false
+    fulltext: true
     # 最多显示多少条搜索结果
     limit: 10
 
@@ -161,6 +161,6 @@ google:
     analytics_id: UA-80669434-1
     adsense:
         footer: true
-        sidebar: true 
+        sidebar: true
         content_header: true
         content_footer: false
