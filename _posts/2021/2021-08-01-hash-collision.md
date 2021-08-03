@@ -1,9 +1,9 @@
 ---
 layout: post
 title: 哈希碰撞与生日攻击
-categories: Algorithm, Math
+categories: [Algorithm, Math]
 description: 哈希碰撞与生日攻击
-keywords: Algorithm, Math
+keywords: [Algorithm, Math]
 mathjax: true
 ---
 
