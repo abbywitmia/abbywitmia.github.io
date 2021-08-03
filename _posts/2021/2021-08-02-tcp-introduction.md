@@ -1,9 +1,9 @@
 ---
 layout: post
 title: TCP 协议简介
-categories: Network, TCP
+categories: [Network, TCP]
 description: TCP 协议简介
-keywords: Network, TCP
+keywords: [Network, TCP]
 ---
 
 作者： 阮一峰  
