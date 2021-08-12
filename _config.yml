@@ -131,11 +131,11 @@ disqus:
     username:
 # https://imsun.net/posts/gitment-introduction/
 gitment:
-    owner: mzlogin
-    repo: blog-comments
+    owner: abbywitmia
+    repo: abbywitmia.github.io
     oauth:
-        client_id: d2e1cbbd298958076462
-        client_secret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+        client_id: c4883c66a8a333022568
+        client_secret: b936b7076f58e45e0001e5ca30998d1ac23fd37e
 # https://github.com/gitalk/gitalk#install
 gitalk:
     owner: abbywitmia
