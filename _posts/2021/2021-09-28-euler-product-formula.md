@@ -8,6 +8,7 @@ mathjax: true
 ---
 
 ***  
+# 解
 首先, 易知(不严格地), 在大于2的整数中任性选一个数,则其为偶数的概率应该是  
 $$ P_1=\frac{1}{2} $$  
 而在大于2的整数中任选两个数,则它们有公约数2(即两个数均为偶数)的概率应该是  
@@ -28,3 +29,14 @@ $$ \prod_{k=1}^{\infty}(1-\frac{1}{p_k^s})^{-1}=\sum_{n=1}^{\infty}\frac{1}{n^s}
 因此
 $$ P=(\sum_{n=1}^\infty \frac{1}{n^2})^{-1} =\frac{6}{\pi^2} $$  
 这一步可以看我讲解Basel Problem的[文章](/2021/08/04/basel-problem/)
+# 证明
+$$ \zeta(s)=1+\frac{1}{2^s}+\frac{1}{3^s}+\cdots=\sum_{n=1}^{\infty}n^{-s} \tag{1}$$  
+两边同时乘以$$2^{-s}$$  
+$$ \frac{1}{2^s}\zeta(s)= \frac{1}{2^s}+\frac{1}{4^s}+\frac{1}{6^s}+\cdots \tag{2}$$  
+(1)-(2)得  
+$$ (1-\frac{1}{2^s})\zeta(s)=1+\frac{1}{3^s}+\frac{1}{5^s}+\cdots $$  
+可以看出,操作后无穷和中含有素因子2的项被消去了,如法炮制  
+$$ (1-\frac{1}{3^s})(1-\frac{1}{2^s})\zeta(s)=1+\frac{1}{5^s}+\frac{1}{7^s}+\cdots $$  
+含有素因子3的项被消去,以此类推,进行无穷次类似操作  
+$$ \cdots(1-\frac{1}{p_k^s})\cdots(1-\frac{1}{3^s})(1-\frac{1}{2^s})\zeta(s)=1 $$  
+$$ \zeta(s)=\sum_{n=1}^{\infty}n^{-s}=\prod_{k=1}^{\infty}(1-p_k^{-s})^{-1} $$  
