@@ -26,7 +26,7 @@ $$ P=\prod_{k=1}^{\infty}(1-\frac{1}{p_k^2}) $$
 其中$$p_k$$为第k个素数.
 而由Euler乘积公式可知  
 $$ \prod_{k=1}^{\infty}(1-\frac{1}{p_k^s})^{-1}=\sum_{n=1}^{\infty}\frac{1}{n^s}=\zeta(s) $$  
-因此
+因此  
 $$ P=(\sum_{n=1}^\infty \frac{1}{n^2})^{-1} =\frac{6}{\pi^2} $$  
 这一步可以看我讲解Basel Problem的[文章](/2021/08/04/basel-problem/)
 # 证明
